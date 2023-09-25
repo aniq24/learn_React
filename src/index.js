@@ -1,42 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Car{
+function basicCalculation(x,y){
 
-  constructor(name){
-    this.brand = name;
+  const add = x + y;
+  const subtract = x - y;
+  const multiply = x * y;
+  const divide = x / y;
 
-  }
-
-  present(){
-
-    return 'I have a ' + this.brand;
-
-
-  }
-
+  return [add, subtract, multiply, divide];
 }
 
-class Model extends Car{
-
-  constructor(name, mod){
-    super(name);
-    this.model = mod;
-
-  }
-
-  show(){
-
-    return this.present() + ', and it is a ' + this.model;
-
-  }
-
-
-
-}
-
-
-const mycar = new Model("Ford","Mustang");
+const [add, subtract, multiply, divide] = basicCalculation(4,2);
+let result = (<div>
+                <p>Sum: {add}</p>
+                <p>Subtract: {subtract}</p>
+                <p>Multiply: {multiply}</p>
+                <p>Divide: {divide}</p>
+              </div>
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(mycar.show());
+root.render(result);
